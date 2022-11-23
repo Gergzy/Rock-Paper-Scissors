@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript tutorial</title>
+</head>
+
+<body>
+    <p>Your javascript goes here!</p>
+    <script>
+        
+        function computerChoice() {
+            let choices = Array('rock', 'paper', 'scissors');
+            let compChoice = choices[Math.floor(Math.random() * choices.length)];
+            return (compChoice);
+        }
+
+        function singleRound(playerChoice = prompt("Choose rock, paper, or scissors", 'rock'), compChoice = computerChoice()) {
+            while ((playerChoice.toLowerCase() !== 'rock') && (playerChoice.toLowerCase() !== 'paper') && (playerChoice.toLowerCase() !== 'scissors'))
+                { alert('Invalid selection. Try again.');
+                playerChoice = prompt('Choose rock, paper, or scissors') }
+            
+            if (playerChoice.toLowerCase() === 'rock') {
+                if (compChoice === 'rock') {
+                    console.log('This round was a tie, play again')
+                    return('tie');
+                }
+                if (compChoice === 'paper') {
+                    console.log('Paper covers rock; computer won this round!')
+                    return('computer');
+                }
+                if (compChoice ==='scissors') {
+                    console.log('Rock beats scissors; player won this round!')
+                    return('player');
+                }
+            }
+
+            if (playerChoice.toLowerCase() === 'paper') {
+                if (compChoice === 'rock') {
+                    console.log('Paper covers rock; player won this round!')
+                    return('player');
+                }
+                if (compChoice === 'paper') {
+                    console.log('This round was a tie, play again')
+                    return('tie');
+                }
+                if (compChoice ==='scissors') {
+                    console.log('Scissors cuts paper; computer won this round!')
+                    return('computer');
+                }
+
+            }
+
+            if (playerChoice.toLowerCase() === 'scissors') {
+                if (compChoice === 'rock') {
+                    console.log('Rock beats scissors; computer won this round!')
+                    return('computer');
+                }
+                if (compChoice === 'paper') {
+                    console.log('Scissors cuts paper; player won this round!')
+                    return('player');
+                }
+                if (compChoice ==='scissors') {
+                    console.log('This round was a tie, play again')
+                    return('tie');
+                }
+
+            }
+        }
+
+        function game() {
+            let i = 0;
+            let playerWins = 0;
+            let computerWins = 0;
+            while (i < 5) {
+                let roundWinner = singleRound();
+                if (roundWinner === 'player') {
+                    playerWins += 1;
+                    i += 1;
+                }
+                if (roundWinner === 'computer') {
+                    computerWins += 1;
+                    i += 1;
+                }
+
+            }
+            if (playerWins > computerWins) {
+                console.log('Player wins the series')
+            }
+            else (console.log('Computer wins the series'))
+        }
+
+
+
+    </script>
+</body>
+
+</html>

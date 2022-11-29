@@ -79,10 +79,16 @@ function singleRound(playerChoice = prompt("Choose rock, paper, or scissors", 'r
         rAnnouncement.textContent = `Player has won the series with a final score of ${playerScore}-${computerScore}! Choose a weapon to play again.`;
         pScore.textContent = 0;
         cScore.textContent = 0;
+        playerScore = 0;
+        computerScore = 0;
+        return
     }
     if (computerScore === 5) {
         rAnnouncement.textContent = `Computer has won the series with a final score of ${computerScore}-${playerScore}! Choose a weapon to play again.`;
         pScore.textContent = 0;
         cScore.textContent = 0;
+        playerScore = 0;
+        computerScore = 0;
+        return
     }
 }
